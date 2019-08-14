@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+            motion:constraintSetStart="@id/startChild"
+            motion:constraintSetEnd="@id/middleChild"
+            motion:duration="300"
+            motion:motionInterpolator="linear">
+        <OnSwipe
+                motion:touchAnchorId="@+id/menu"
+                motion:touchAnchorSide="top"
+                motion:dragDirection="dragUp"/>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/startChild">
+        <Constraint android:id="@id/menu"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_play_arrow_gray_32dp"
+                    motion:layout_constraintStart_toStartOf="parent"
+                    motion:layout_constraintTop_toTopOf="parent"/>
+        <Constraint android:id="@id/tvMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:maxLines="1"
+                    android:text="Menu"
+                    android:textColor="#089949"
+                    android:gravity="center"
+                    android:textSize="12sp"
+                    android:paddingEnd="12dp"
+                    motion:layout_constraintStart_toEndOf="@+id/menu"
+                    motion:layout_constraintTop_toTopOf="parent"
+                    motion:layout_constraintBottom_toBottomOf="@+id/menu_layout"/>
+        <Constraint
+                android:id="@+id/menu_bgLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:alpha="0"
+                motion:layout_constraintTop_toTopOf="@+id/menu_layout"
+                motion:layout_constraintBottom_toBottomOf="@+id/menu_layout"
+                motion:layout_constraintStart_toStartOf="@+id/menu_layout"
+                motion:layout_constraintEnd_toEndOf="@+id/menu_layout"/>
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/middleChild">
+        <Constraint android:id="@id/menu"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_play_arrow_gray_32dp"
+                    motion:layout_constraintStart_toStartOf="parent"
+                    motion:layout_constraintTop_toTopOf="parent"/>
+        <Constraint android:id="@id/tvMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text="Menu"
+                    android:alpha="1"
+                    android:textColor="#089949"
+                    android:gravity="center"
+                    android:textSize="12sp"
+                    android:paddingEnd="12dp"
+                    motion:layout_constraintStart_toEndOf="@+id/menu"
+                    motion:layout_constraintTop_toTopOf="parent"
+                    motion:layout_constraintBottom_toBottomOf="@+id/menu_layout"/>
+        <Constraint
+                android:id="@+id/menu_bgLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:alpha="1"
+                motion:layout_constraintTop_toTopOf="@+id/menu_layout"
+                motion:layout_constraintBottom_toBottomOf="@+id/menu_layout"
+                motion:layout_constraintStart_toStartOf="@+id/menu_layout"
+                motion:layout_constraintEnd_toEndOf="@+id/menu_layout"/>
+
+    </ConstraintSet>
+
+</MotionScene>
